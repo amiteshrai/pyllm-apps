@@ -6,7 +6,8 @@ authors = [
     {name = "Amitesh Rai",email = "amiteshrai@outlook.com"}
 ]
 readme = "README.md"
-requires-python = "3.10.16"
+requires-python = ">=3.10.16"
+# requires-python = "3.10.16" # LangChain installation needs this
 dependencies = [
     "jupyterlab (>=4.3.6,<5.0.0)",
     "python-dotenv (>=1.1.0,<2.0.0)",
@@ -19,12 +20,16 @@ dependencies = [
     "polars (>=1.26.0,<2.0.0)",
     "pandas (>=2.2.3,<3.0.0)",
     "redis (>=5.2.1,<6.0.0)",
-    "snowflake (>=1.1.0,<2.0.0)"
+    "snowflake (>=1.1.0,<2.0.0)",
+    "langchain-community (>=0.3.20,<0.4.0)",
+    "langchain-core (>=0.3.48,<0.4.0)",
+    "typing-extensions (>=4.12.2,<5.0.0)",
+    "langchain-openai (>=0.3.10,<0.4.0)",
+    "langgraph (>=0.3.20,<0.4.0)"
 ]
 
 [tool.poetry]
 packages = [{include = "apps", from = "src"}]
-
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
@@ -32,12 +37,18 @@ flake8 = "^7.1.2"
 isort = "^6.0.1"
 mypy = "^1.15.0"
 pylint = "^3.3.6"
-
+ruff = "^0.11.2"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.3.5"
 faker = "^37.1.0"
 radon = "^6.0.1"
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src", "tests"]
+ignore_missing_imports = true
+strict = true
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
