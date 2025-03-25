@@ -1,0 +1,8 @@
+*env
+data
+docs/diagrams*
+__pycache__
+**cache**
+*.pyc
+*.log
+*.zip
