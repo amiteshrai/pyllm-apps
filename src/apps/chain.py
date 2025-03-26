@@ -1,7 +1,5 @@
 """Example Using Language Chains"""
 
-from pprint import pprint
-
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain, SequentialChain
 from langchain_openai.llms import OpenAI
